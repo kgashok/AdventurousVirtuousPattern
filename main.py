@@ -58,5 +58,3 @@ alist = selection_sort(alist)
 print("After selectionsort2", alist)
 
 
-
-
