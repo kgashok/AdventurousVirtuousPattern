@@ -13,3 +13,14 @@ requiredFiles = [".replit", "replit.nix"]
 [deployment]
 run = ["python3", "main.py"]
 deploymentTarget = "cloudrun"
+
+[workflows]
+runButton = "Compile and Run C"
+
+[[workflows.workflow]]
+name = "Compile and Run C"
+author = 2047244
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "gcc -o program select.c && ./program"
