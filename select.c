@@ -41,16 +41,26 @@ void selection_sort(int arr[], int n) {
 
 // Function to generate a random array
 void generate_RandomArray(int arr[], int size) {
+    // Fill array with sequential values
     for (int i = 0; i < size; i++) {
         arr[i] = i + 1;
     }
     
-    // Fisher-Yates shuffle
-    for (int i = size - 1; i > 0; i--) {
-        int j = rand() % (i + 1);
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+    // Randomly decide whether to create a descending sorted array
+    if (rand() % 4 == 0) {  // 25% chance to return a sorted array in descending order
+        printf("Creating a descending sorted array\n");
+        // Create array in descending order
+        for (int i = 0; i < size; i++) {
+            arr[i] = size - i;
+        }
+    } else {
+        // Normal case - Fisher-Yates shuffle
+        for (int i = size - 1; i > 0; i--) {
+            int j = rand() % (i + 1);
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
     }
 }
 
